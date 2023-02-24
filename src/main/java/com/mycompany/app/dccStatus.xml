@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dccStatus>
+  <arduinoPort>COM3</arduinoPort>
+  <serverList>192.168.1.169</serverList>
+  <SensorButtons>
+    <Sensor1>true</Sensor1>
+    <Sensor2>true</Sensor2>
+    <Sensor3>true</Sensor3>
+    <Sensor4>true</Sensor4>
+    <Sensor5>true</Sensor5>
+    <Sensor6>true</Sensor6>
+    <Sensor7>true</Sensor7>
+    <Sensor8>true</Sensor8>
+    <Sensor9>true</Sensor9>
+    <Sensor10>false</Sensor10>
+    <Sensor11>false</Sensor11>
+    <Sensor12>true</Sensor12>
+    <Sensor13>true</Sensor13>
+    <Sensor14>true</Sensor14>
+    <Sensor15>true</Sensor15>
+    <Sensor16>true</Sensor16>
+  </SensorButtons>
+  <SignalButtons>
+    <Signal1>true</Signal1>
+    <Signal2>true</Signal2>
+    <Signal3>true</Signal3>
+    <Signal4>true</Signal4>
+    <Signal5>true</Signal5>
+    <Signal6>true</Signal6>
+    <Signal7>true</Signal7>
+    <Signal8>true</Signal8>
+    <Signal9>true</Signal9>
+    <Signal10>true</Signal10>
+    <Signal11>true</Signal11>
+    <Signal12>true</Signal12>
+    <Signal13>true</Signal13>
+    <Signal14>true</Signal14>
+    <Signal15>true</Signal15>
+    <Signal16>true</Signal16>
+    <Signal17>true</Signal17>
+    <Signal18>true</Signal18>
+    <Signal19>true</Signal19>
+    <Signal20>true</Signal20>
+    <Signal21>true</Signal21>
+    <Signal22>true</Signal22>
+    <Signal23>true</Signal23>
+    <Signal24>true</Signal24>
+    <Signal25>true</Signal25>
+    <Signal26>true</Signal26>
+    <Signal27>true</Signal27>
+    <Signal28>true</Signal28>
+    <Signal29>true</Signal29>
+    <Signal30>true</Signal30>
+    <Signal31>true</Signal31>
+    <Signal32>true</Signal32>
+    <Signal33>true</Signal33>
+    <Signal34>true</Signal34>
+    <Signal35>true</Signal35>
+    <Signal36>true</Signal36>
+    <Signal37>true</Signal37>
+  </SignalButtons>
+  <LocoButtons>
+    <Loco1>true</Loco1>
+    <Loco2>true</Loco2>
+    <Loco3>true</Loco3>
+    <Loco4>true</Loco4>
+    <Loco5>true</Loco5>
+    <Loco6>true</Loco6>
+    <Loco7>true</Loco7>
+  </LocoButtons>
+  <autoPilot>
+    <Cab1>FULL</Cab1>
+    <Cab2>STOP</Cab2>
+    <Cab3>STOP</Cab3>
+    <Cab4>STOP</Cab4>
+    <Cab5>FULL</Cab5>
+    <Cab6>FULL</Cab6>
+    <Cab7>STOP</Cab7>
+    <Phase>100</Phase>
+    <TCount>0</TCount>
+    <CrossOver>0</CrossOver>
+    <Program>AUTO CLEAN</Program>
+    <CabList>1</CabList>
+    <Cab1>STOP</Cab1>
+  </autoPilot>
+  <cabDefaults>
+    <Cab1>
+      <throttleDefaults FACTOR="18" FULL="100" REVERSE="-50" REVERSE_SLOW="-45" SLOW="50" STOP="0"/>
+    </Cab1>
+    <Cab2>
+      <throttleDefaults FACTOR="20" FULL="53" REVERSE="-20" REVERSE_SLOW="-13" SLOW="30" STOP="0"/>
+    </Cab2>
+    <Cab3>
+      <throttleDefaults FACTOR="15" FULL="77" REVERSE="-34" REVERSE_SLOW="-30" SLOW="46" STOP="0"/>
+    </Cab3>
+    <Cab4>
+      <throttleDefaults FACTOR="18" FULL="50" REVERSE="-25" REVERSE_SLOW="-15" SLOW="25" STOP="0"/>
+    </Cab4>
+    <Cab5>
+      <throttleDefaults FACTOR="25" FULL="34" REVERSE="-5" REVERSE_SLOW="-3" SLOW="14" STOP="0"/>
+    </Cab5>
+    <Cab6>
+      <throttleDefaults FACTOR="22" FULL="34" REVERSE="-24" REVERSE_SLOW="-18" SLOW="25" STOP="0"/>
+    </Cab6>
+    <Cab7>
+      <throttleDefaults FACTOR="25" FULL="61" REVERSE="-30" REVERSE_SLOW="-22" SLOW="42" STOP="0"/>
+    </Cab7>
+  </cabDefaults>
+</dccStatus>
