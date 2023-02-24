@@ -1,91 +1,57 @@
-# Try Out Development Containers: Java
+DCC and/or ANALOGIC Railway Controller
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+Presentation
 
-A **development container** is a running container with a well-defined tool/runtime stack and its prerequisites. You can try out development containers with **[GitHub Codespaces](https://github.com/features/codespaces)** or **[Visual Studio Code Dev Containers](https://aka.ms/vscode-remote/containers)**.
+This work is based upon the Gregg E. Berman'works and Steve Massikker’works.
+Thank you for yours works and sharing.
 
-This is a sample project that lets you try out either option in a few easy steps. We have a variety of other [vscode-remote-try-*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) sample projects, too.
+We all have old locomotives in our drawers.
+Unfortunately, it is often difficult, if not impossible, to convert them with the new electronics and DCC drivers.
+The objectives of this project were therefore to control these old analog locomotives (without DCC) and thus to complete the developments of Greeg E. Berman with new functionalities.
+The first part of these developments was realized between 2021 AND 2022 by EMA (mbmngt@gmail.com).
 
-> **Note:** If you already have a Codespace or dev container, you can jump to the [Things to try](#things-to-try) section.
+They include:
+1. - The design of a new circuit compatible with my railway installation:
+1.1. - This installation is composed of 3 main circuits and 2 secondary circuits.
+1.2. -  Some blocks “cantons” structure these circuits. Each main circuit is divided into 4 blocks. Each secondary circuit is divided into several blocks.
+2. - Additional software functions:
+2.1. - On Processing
+2.1.1. - A visualization on the PC screen of the movements of the locomotives on the circuits.
+2.1.2. - The control of old analog locomotives (without DCC equipment).
+2.1.3. - Automatic locomotive control via current sensors
+2.1.4. - Adding viewing windows for switches, traffic lights and accessories
+2.2. - On Mega
+2.2.1. - I2C communication with 5 Nano
+2.3. - About Nano
+2.3.1. - Direct control of locomotives.
+3. - Complementary electronics
+3.1. - Commands are supported by one Arduino Mega and 5 Arduino Nano
+3.2. - The circuits are controlled by the Nano completed with L298 and ACS712
+4. - The communications used are:
+4.1. - Serial communication between Processing and Mega
+4.2. - I2C communication between Mega and Nano
 
-## Setting up the development container
+The next planned developments are:
+1. - The complement of electronics to control the hands, railway traffic lights and accessories
+2. - Software add-ons:
+2.1. - Ordering needles from Processing and with Mega
+2.2. -Rail traffic light control from Processing and with Mega
+3. - Ordering accessories from Processing and with Mega and one of the Nanos
+4. - The modification of the Autopilot function on Processing to adapt it to my railway installation.
 
-### GitHub Codespaces
-Follow these steps to open this sample in a Codespace:
-1. Click the **Code** drop-down menu.
-2. Click on the **Codespaces** tab.
-3. Click **Create codespace on main**.
+Structure of the electronics
+View File Railway Controller Elect Synoptic
 
-For more info, check out the [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace#creating-a-codespace).
+Use
+These developments can be adapted to all railway networks.
+The structure of these networks must be defined in the “controllerConfig” sheet under Processing.
+The controls of the electronics with the Mega and the Nano can be adapted to your peripherals.
 
-### VS Code Dev Containers
+Note
+• In this project the Processing and Mega applications have been modified and supplemented.
+• In the application under Processing, keyboard commands have been modified (see Help window) and in the "Main", the command "read operation track current function" has been deactivated.
+• However, the initial functionalities using the DCCs have been retained.
 
-If you already have VS Code and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+It is therefore possible to control locomotives and other devices (switches, traffic lights, etc.) with the NMRA standard and the DCCs, but also in analogue, etc.
 
-Follow these steps to open this sample in a container using the VS Code Dev Containers extension:
-
-1. If this is your first time using a development container, please ensure your system meets the pre-reqs (i.e. have Docker installed) in the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started).
-
-2. To use this repository, you can either open the repository in an isolated Docker volume:
-
-    - Press <kbd>F1</kbd> and select the **Dev Containers: Try a Sample...** command.
-    - Choose the "Java" sample, wait for the container to start, and try things out!
-        > **Note:** Under the hood, this will use the **Dev Containers: Clone Repository in Container Volume...** command to clone the source code in a Docker volume instead of the local filesystem. [Volumes](https://docs.docker.com/storage/volumes/) are the preferred mechanism for persisting container data.
-
-   Or open a locally cloned copy of the code:
-
-   - Clone this repository to your local filesystem.
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Open Folder in Container...** command.
-   - Select the cloned copy of this folder, wait for the container to start, and try things out!
-
-## Things to try
-
-Once you have this sample opened, you'll be able to work with it like you would locally.
-
-Some things to try:
-
-1. **Edit:**
-   - Open `src/main/java/com/mycompany/app/App.java`.
-   - Try adding some code and check out the language features.
-   - Make a spelling mistake and notice it is detected. The [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) extension was automatically installed because it is referenced in `.devcontainer/devcontainer.json`.
-   - Also notice that the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is installed. The JDK is in the `mcr.microsoft.com/devcontainers/java` image and Dev Container settings and metadata are automatically picked up from [image labels](https://containers.dev/implementors/reference/#labels).
-
-2. **Terminal:** Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\`</kbd> and type `uname` and other Linux commands from the terminal window.
-
-3. **Build, Run, and Debug:**
-   - Open `src/main/java/com/mycompany/app/App.java`.
-   - Add a breakpoint.
-   - Press <kbd>F5</kbd> to launch the app in the container.
-   - Once the breakpoint is hit, try hovering over variables, examining locals, and more.
-
-4. **Run a Test:**
-   - Open `src/test/java/com/mycompany/app/AppTest.java`.
-   - Put a breakpoint in a test.
-   - Click the `Debug Test` in the Code Lens above the function and watch it hit the breakpoint.
-
-5. **Install Node.js using a Dev Container Feature:**
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Configure Container Features...** or **Codespaces: Configure Container Features...** command.
-   - Type "node" in the text box at the top.
-   - Check the check box next to "Node.js (via nvm) and yarn" (published by devcontainers) 
-   - Click OK
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Rebuild Container** or **Codespaces: Rebuild Container** command so the modifications are picked up.
-
-  
-## Contributing
-
-This project welcomes contributions and suggestions. Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## License
-
-Copyright © Microsoft Corporation All rights reserved.<br />
-Licensed under the MIT License. See LICENSE in the project root for license information.
+If these developments are useful to you, you can contact me here or on my email mbmngt@gmail.com.
