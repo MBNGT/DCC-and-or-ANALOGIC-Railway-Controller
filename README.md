@@ -1,4 +1,5 @@
-#DCC and/or ANALOGIC Railway Controller
+# DCC-and-or-ANALOGIC-Railway-Controller
+DCC and/or ANALOGIC Railway Controller
 
 Presentation
 
