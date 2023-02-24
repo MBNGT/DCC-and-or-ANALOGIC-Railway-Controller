@@ -1,0 +1,138 @@
+/**********************************************************************
+
+DCCpp_Mega.h
+COPYRIGHT (c) 2013-2015 Gregg E. Berman
+
+Part of Railway_Control Base Station for the Arduino
+
+**********************************************************************/
+
+#include "Config.h"
+
+#ifndef DCCpp_Mega_h
+#define DCCpp_Mega_h
+
+/////////////////////////////////////////////////////////////////////////////////////
+// AUTO-SELECT ARDUINO BOARD
+/////////////////////////////////////////////////////////////////////////////////////
+
+#ifdef ARDUINO_AVR_MEGA                   // is using Mega 1280, define as Mega 2560 (pinouts and functionality are identical)
+  #define ARDUINO_AVR_MEGA2560
+#endif
+
+#if defined  ARDUINO_AVR_UNO
+
+  #define ARDUINO_TYPE    "UNO"
+
+  #define DCC_SIGNAL_PIN_MAIN 10          // Ardunio Uno  - uses OC1B
+  #define DCC_SIGNAL_PIN_PROG 5           // Arduino Uno  - uses OC0B
+
+  #if COMM_TYPE != 0                      // Serial was not selected
+
+    #error CANNOT COMPILE - Railway_Control FOR THE UNO CAN ONLY USE SERIAL COMMUNICATION - PLEASE SELECT THIS IN THE CONFIG FILE
+
+  #endif
+
+#elif defined  ARDUINO_AVR_MEGA2560
+
+  #define ARDUINO_TYPE    "MEGA"
+
+  #define DCC_SIGNAL_PIN_MAIN 12          // Arduino Mega - uses OC1B
+  #define DCC_SIGNAL_PIN_PROG 2           // Arduino Mega - uses OC3B
+
+#else
+
+  #error CANNOT COMPILE - Railway_Control ONLY WORKS WITH AN ARDUINO UNO OR AN ARDUINO MEGA 1280/2560
+
+#endif
+
+/////////////////////////////////////////////////////////////////////////////////////
+// SELECT MOTOR SHIELD
+/////////////////////////////////////////////////////////////////////////////////////
+
+#if MOTOR_SHIELD_TYPE == 0
+
+  #define MOTOR_SHIELD_NAME "ARDUINO MOTOR SHIELD"
+
+  #define SIGNAL_ENABLE_PIN_MAIN 3
+  #define SIGNAL_ENABLE_PIN_PROG 11
+
+  #define CURRENT_MONITOR_PIN_MAIN A0
+  #define CURRENT_MONITOR_PIN_PROG A1
+
+  #define DIRECTION_MOTOR_CHANNEL_PIN_A 12
+  #define DIRECTION_MOTOR_CHANNEL_PIN_B 13
+
+#elif MOTOR_SHIELD_TYPE == 1
+
+  #define MOTOR_SHIELD_NAME "POLOLU MC33926 MOTOR SHIELD"
+
+  #define SIGNAL_ENABLE_PIN_MAIN 9
+  #define SIGNAL_ENABLE_PIN_PROG 11
+
+  #define CURRENT_MONITOR_PIN_MAIN A0
+  #define CURRENT_MONITOR_PIN_PROG A1
+
+  #define DIRECTION_MOTOR_CHANNEL_PIN_A 7
+  #define DIRECTION_MOTOR_CHANNEL_PIN_B 8
+
+#elif MOTOR_SHIELD_TYPE == 2
+
+  #define MOTOR_SHIELD_NAME "Nano and L298N"
+
+  #define SIGNAL_ENABLE_PIN_MAIN 9
+  #define SIGNAL_ENABLE_PIN_PROG 11
+
+  #define CURRENT_MONITOR_PIN_MAIN A0
+  #define CURRENT_MONITOR_PIN_PROG A1
+
+  #define DIRECTION_MOTOR_CHANNEL_PIN_A 7
+  #define DIRECTION_MOTOR_CHANNEL_PIN_B 8
+
+#else
+
+  #error CANNOT COMPILE - PLEASE SELECT A PROPER MOTOR SHIELD TYPE
+
+#endif
+
+/////////////////////////////////////////////////////////////////////////////////////
+// SELECT COMMUNICATION INTERACE
+/////////////////////////////////////////////////////////////////////////////////////
+
+#if COMM_TYPE == 0
+
+  #define INTERFACE Serial
+
+#elif COMM_TYPE == 1
+
+  #define INTERFACE eServer
+  #define SDCARD_CS 4
+  
+#else
+
+  #error CANNOT COMPILE - PLEASE SELECT A PROPER COMMUNICATIONS INTERFACE TYPE
+
+#endif
+
+/////////////////////////////////////////////////////////////////////////////////////
+// SET WHETHER TO SHOW PACKETS - DIAGNOSTIC MODE ONLY
+/////////////////////////////////////////////////////////////////////////////////////
+
+// If SHOW_PACKETS is set to 1, then for select main operations track commands that modify an internal DCC packet register,
+// if printFlag for that command is also set to 1, Railway_Control Base Station will additionally return the 
+// DCC packet contents of the modified register in the following format:
+
+//    <* REG: B1 B2 ... Bn CSUM / REPEAT>
+//
+//    REG: the number of the main operations track packet register that was modified
+//    B1: the first hexidecimal byte of the DCC packet
+//    B2: the second hexidecimal byte of the DCC packet
+//    Bn: the nth hexidecimal byte of the DCC packet
+//    CSUM: a checksum byte that is required to be the final byte in any DCC packet
+//    REPEAT: the number of times the DCC packet was re-transmitted to the tracks after its iniital transmission
+ 
+#define SHOW_PACKETS  0       // set to zero to disable printing of every packet for select main operations track commands
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+#endif
